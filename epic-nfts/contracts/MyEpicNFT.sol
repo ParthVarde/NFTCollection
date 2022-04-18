@@ -41,6 +41,8 @@ contract MyEpicNFT is ERC721URIStorage {
         "CaptainAmerica"
     ];
 
+    event NewEpicNFTMinted(address sender, uint256 tokenId);
+
     constructor() ERC721("SquareNFT", "SQUARE") {
         console.log("This is my first NFT Contract!");
     }
@@ -131,5 +133,7 @@ contract MyEpicNFT is ERC721URIStorage {
             newItemId,
             msg.sender
         );
+
+        emit NewEpicNFTMinted(msg.sender, newItemId);
     }
 }
