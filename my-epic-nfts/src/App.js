@@ -18,6 +18,13 @@ function App() {
       console.log("We have ethereum object", ethereum);
     }
 
+    const chainId = await ethereum.request({ method: 'eth_chainId' });
+    console.log("Connect to chain : " + chainId);
+
+    if (chainId !== "0x4") {
+      alert("You are not on Rinkeby Test Network");
+    }
+
     const accounts = await ethereum.request({ method: 'eth_accounts' });
 
     if (accounts.length !== 0) {
